@@ -9,3 +9,8 @@ Airbnb has seen an enormous growth, with the number of rentals listed on its web
 This problem focuses on the accommodation features and decisions a new host can make with regards </br> 
 to initial presentation, i.e. posting a picture of him- or herself on the website, determining a minimum </br> 
 length of stay, offering instant bookings etc. A machine learning algorithm will be applied to try to get an answer.
+
+
+Data
+======
+You can obtain data from https://www.kaggle.com/brittabettendorf/berlin-airbnb-data
