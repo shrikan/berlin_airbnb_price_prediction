@@ -43,7 +43,7 @@ def collect_and_process(input_file):
     listings_summary_df = pd.read_csv(input_file)
 
     # required_columns = []
-    with open("../../data/required_columns.txt") as infile:
+    with open("../data/required_columns.txt") as infile:
         required_columns = map(lambda line: line.rstrip(), infile.readlines())
 
     # Setting the index to column id, Hence column id from the required columns is mandatory.

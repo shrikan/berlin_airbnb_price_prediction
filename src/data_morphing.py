@@ -1,10 +1,5 @@
 from geopy.distance import great_circle
-import importlib.util
-
-scriptpath = "../model/regression_model.py"
-spec = importlib.util.spec_from_file_location("get_missing_values", scriptpath)
-module = importlib.util.module_from_spec(spec)
-spec.loader.exec_module(module)
+import model_ready
 
 
 def add_distance(df):
@@ -50,7 +45,7 @@ def get_area_from_description(df):
     number_pattern = "[^\\d.]+"
     df['area'] = df['description'].str.extract(area_pattern, expand=True)
     df['area'] = df['area'].str.replace(number_pattern, "").astype(float)
-    df = module.get_missing_values(df)
+    df = model_ready.get_missing_values(df)
     df.drop(['description'], axis=1, inplace=True)
     return df
 
