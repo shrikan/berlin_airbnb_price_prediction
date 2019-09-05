@@ -15,6 +15,16 @@ from sklearn.model_selection import GridSearchCV
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error, r2_score
 
+"""
+    @:param df Dataframe without the target column
+            taregt Dataframe with target column
+
+    :returns xgb_regressor A fit model with minimlastic RMSE to predict further values
+
+    A random forest is used here to determine the best fit parameters and then xgboost
+    method is used to find out the estimated price/target.
+    A final plot is plotted in order to show relation with various features importance.
+"""
 
 
 def execute(df, target):
@@ -55,3 +65,7 @@ def execute(df, target):
     feature_importances = pd.Series(xgb_regressor.feature_importances_, index=df.columns)
     feature_importances.nlargest(15).sort_values().plot(kind='barh', color='blue', figsize=(10, 5))
     plt.xlabel('Feature impact on the price')
+
+    plt.show()
+
+    return xgb_regressor

@@ -4,11 +4,6 @@ from mlmodels import xg_boost, kernel_ridge_regression
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error, r2_score
 
-#script_path = "../model/kernel_ridge_regression.py"
-#spec = importlib.util.spec_from_file_location("execute", script_path)
-#module = importlib.util.module_from_spec(spec)
-#spec.loader.exec_module(module)
-
 
 """
     @param df : the dataframe having few rows with null area value
@@ -56,9 +51,21 @@ def get_missing_values(df):
     return merged_df
 
 
-def get_price(df):
+"""
+    @:param df A pre-processed dataframe ready to be learnt and predict the values
+    
+    :returns the learnt model
+    
+    This method is a wrapper method to call the implementation of the xgboost algorithm
+    The dataframe is split into learning frame and the target. The mode returned by the implementation
+    is returned to predict the price for given set of features that help the new hosts to set 
+    the price for their property.
+"""
+
+
+def get_estimation(df):
     # Set the target column and remove it from the dataframe
     target = df[['price']]
     df.drop(['price'], axis=1, inplace=True)
 
-    xg_boost.execute(df, target)
+    return xg_boost.execute(df, target)
