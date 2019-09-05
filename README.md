@@ -11,7 +11,7 @@ length of stay, offering instant bookings etc. A machine learning algorithm will
 
 
 **Data** </br> 
-You can obtain data from https://www.kaggle.com/brittabettendorf/berlin-airbnb-data
+You can obtain data from http://insideairbnb.com/get-the-data.html for Berlin city
 
 **Pre-requisities**
 1. Python3</br> 
